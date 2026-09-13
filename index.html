@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Forensic Evidence Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>🔎 Digital Forensic Evidence Analyzer</h1>
+        <p>JimmyWilson Investigation</p>
+    </header>
+
+    <section class="case-info">
+
+        <h2>Case Information</h2>
+
+        <p><b>Case Name:</b> JimmyWilson Investigation</p>
+
+        <p>
+            <b>Investigation Type:</b>
+            Digital Forensics & Cyber Crime Investigation
+        </p>
+
+        <p>
+            <b>Primary Evidence:</b>
+            2020JimmyWilson.E01
+        </p>
+
+    </section>
+
+
+    <h2>Investigation Artifacts</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>{{ data.web_history }}</h3>
+            <p>Web History</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ data.web_search }}</h3>
+            <p>Web Searches</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ data.emails }}</h3>
+            <p>Email Messages</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ data.usb_devices }}</h3>
+            <p>USB Devices</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ data.deleted_files }}</h3>
+            <p>Deleted Files</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ data.exif_metadata }}</h3>
+            <p>EXIF Metadata</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ data.installed_programs }}</h3>
+            <p>Installed Programs</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ data.recent_documents }}</h3>
+            <p>Recent Documents</p>
+        </div>
+
+    </div>
+
+
+    <section class="hash-section">
+
+        <h2>Evidence Integrity Verification</h2>
+
+        <p>
+            Upload an evidence file to calculate its SHA-256 hash.
+        </p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input type="file"
+                   name="evidence"
+                   required>
+
+            <button type="submit">
+                Calculate SHA-256
+            </button>
+
+        </form>
+
+
+        {% if hash_result %}
+
+        <div class="result">
+
+            <h3>✓ Hash Generated</h3>
+
+            <p>
+                <b>File:</b> {{ filename }}
+            </p>
+
+            <p><b>SHA-256:</b></p>
+
+            <div class="hash">
+                {{ hash_result }}
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <section class="suspicious">
+
+        <h2>⚠ Suspicious Activity Indicators</h2>
+
+        <p>
+            The investigation contains searches related to
+            potentially suspicious topics.
+        </p>
+
+        <ul>
+            <li>ID Theft</li>
+            <li>How to steal identities</li>
+            <li>Identity theft jail time</li>
+            <li>How to disappear without a trace</li>
+            <li>Fast getaway cars</li>
+            <li>Handguns</li>
+        </ul>
+
+        <div class="warning">
+
+            ⚠ These indicators are investigative leads only.
+            They do not by themselves prove criminal intent.
+
+        </div>
+
+    </section>
+
+
+    <section class="findings">
+
+        <h2>Investigation Summary</h2>
+
+        <p>
+            The JimmyWilson investigation contains multiple digital
+            artifacts including web history, web searches, email
+            messages, USB devices, deleted files and metadata.
+        </p>
+
+        <p>
+            This analyzer organizes these findings into a simple
+            dashboard to support digital forensic investigation.
+        </p>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            Digital Forensics Project |
+            JimmyWilson Investigation
+        </p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
